@@ -1,0 +1,39 @@
+<view class="profile">
+  <view class="profile-header" wx:if="{{userInfo !== null}}">
+    <view class="avatar">
+      <image src="{{userInfo.avatarUrl}}" style="width:100rpx;height:100rpx;"></image>
+    </view>
+    <view class="nick-name">{{userInfo.nickName}}</view>
+  </view>
+  <view wx:else class="profile-header">
+    <view class="avatar">
+      <image src="/assets/images/common/nologin.png" style="width:100rpx;height:100rpx;"></image>
+    </view>
+    <button class="login-button" plain="true" open-type="getUserInfo" bind:getuserinfo="_getUserInfo" size="mini">立即登录</button>
+  </view>
+  <view class="space"></view>
+  <view class="menu-item">
+    <view class="item-name">
+      <image src="/assets/images/common/info.png" class="item-icon"></image>个人信息
+    </view>
+    <view class="arrow-right">
+      <image src="/assets/images/common/arrow-right.png" class="item-icon"></image>
+    </view>
+  </view>
+  <view class="menu-item">
+    <view class="item-name">
+      <image src="/assets/images/common/apply.png" class="item-icon"></image>我参加的活动
+    </view>
+    <view class="arrow-right">
+      <image src="/assets/images/common/arrow-right.png" class="item-icon"></image>
+    </view>
+  </view>
+  <view class="menu-item">
+    <view class="item-name">
+      <image src="/assets/images/common/organize.png" class="item-icon"></image>我发起的活动
+    </view>
+    <view class="arrow-right">
+      <image src="/assets/images/common/arrow-right.png" class="item-icon"></image>
+    </view>
+  </view>
+</view>

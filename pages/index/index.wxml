@@ -1,0 +1,12 @@
+<button bindtap="login" >登录</button>
+<button bindtap="getInfo">获取用户信息</button>
+<button bindtap="msgPush">推送了</button>
+<button bindtap="site">获取用户位置等</button>
+<view>{{activity[0].activityName}}</view>
+<button open-type="getUserInfo" bindgetuserinfo="_get">a</button>
+<view wx:if="{{a}}">
+  a
+</view>
+<view wx:if="{{!a}}">
+  b
+</view>

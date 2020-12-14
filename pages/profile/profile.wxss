@@ -1,0 +1,48 @@
+/* pages/profile/profile.wxss */
+.profile{
+  height: 100%;
+}
+.profile-header{
+  display: flex;
+  padding: 30rpx;
+}
+.profile-header .avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile-header .nick-name{
+  line-height: 100rpx;
+  margin-left: 38rpx;
+}
+.profile-header .login-button{
+  border:0;
+  line-height: 100rpx;
+  margin-left: 10rpx;
+  font-weight: 400;
+}
+.space{
+  background-color: #D3D3D3;
+  height: 10rpx;
+}
+.menu-item{
+  height: 80rpx;
+  display: flex;
+  line-height: 80rpx;
+  border-bottom: 1px solid #bfbfbf;
+}
+.menu-item .item-name{
+  flex: 1;
+  font-size: 32rpx;
+  padding-left: 20rpx;
+}
+.menu-item .arrow-right{
+ line-height: 80rpx;
+}
+.menu-item .item-icon{
+  width:40rpx;
+  height:40rpx;
+  vertical-align:middle;
+  margin-right: 16rpx;
+}
