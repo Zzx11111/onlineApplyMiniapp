@@ -1,1 +1,13 @@
 /* pages/release/release.wxss */
+.img-upload .swiper-img{
+  width: 100%;
+  height: 100%;
+}
+/* .img-upload .van-uploader__upload{
+  width: 50rpx !important;
+  height: 50rpx !important;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+} */

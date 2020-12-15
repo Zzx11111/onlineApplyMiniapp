@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    swiperImg:[
+      "/assets/images/common/123.jpg"
+    ],
+    fileList:[]
   },
 
   /**
@@ -42,25 +45,34 @@ Page({
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  chooseImage(){
+    var that = this
+    //选择图片
+    wx.chooseImage({
+      count: 1,
+      success(res){
+        //发送url转换base64
+        console.log(res)
+        wx.request({
+          url:res.tempFilePaths[0],
+          responseType:'arraybuffer',
+          success(res){
+            console.log(res)
+            let base64 = 'data:image/jpeg;base64,'+ wx.arrayBufferToBase64(res.data)
+            console.log(base64)
+            let Imgs = that.data.swiperImg
+            Imgs.push(base64)
+            that.setData({
+              swiperImg:Imgs
+            })
+          }
+        })  
+      }
+    })
+    // let Imgs = this.data.swiperImg
+    // Imgs.push('/assets/images/common/nologin.png')
+    // this.setData({
+    //   swiperImg:Imgs
+    // })
   }
 })
