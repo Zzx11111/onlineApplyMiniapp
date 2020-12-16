@@ -5,17 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperImg:[
-      "/assets/images/common/123.jpg"
-    ],
-    fileList:[]
+    imgUrl:'',
+    activityName:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -43,36 +41,45 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
+  //选择图片
   chooseImage(){
     var that = this
-    //选择图片
     wx.chooseImage({
       count: 1,
+      sizeType:['compressed'],
       success(res){
         //发送url转换base64
         console.log(res)
-        wx.request({
-          url:res.tempFilePaths[0],
-          responseType:'arraybuffer',
-          success(res){
-            console.log(res)
-            let base64 = 'data:image/jpeg;base64,'+ wx.arrayBufferToBase64(res.data)
-            console.log(base64)
-            let Imgs = that.data.swiperImg
-            Imgs.push(base64)
-            that.setData({
-              swiperImg:Imgs
-            })
-          }
-        })  
-      }
+        that.setData({
+          imgUrl:res.tempFilePaths[0]
+        })
+        console.log('data:image/jpg;base64,'+ wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64"))
+        // wx.request({
+        //   url:res.tempFilePaths[0],
+        //   responseType:'arraybuffer',
+        //   success(res){
+        //     console.log(res)
+        //     let base64 = 'data:image/jpeg;base64,'+ wx.arrayBufferToBase64(res.data)
+        //     console.log(base64)
+        //     let Imgs = that.data.swiperImg
+        //     Imgs.push(base64)
+        //     that.setData({
+        //       swiperImg:Imgs
+        //     })
+        //   },
+        //   fail(error){
+        //     console.log(error)
+        //   }
+        // })  
+       }
+     })
+  },
+  onChange(e){
+    console.log(e)
+    this.setData({
+      value:e.detail
     })
-    // let Imgs = this.data.swiperImg
-    // Imgs.push('/assets/images/common/nologin.png')
-    // this.setData({
-    //   swiperImg:Imgs
-    // })
   }
 })
