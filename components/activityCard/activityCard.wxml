@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <image src="/assets/images/common/123.jpg" class="activity-img"></image>
+    <view class="time-end">
+      2天后截止报名
+    </view>
+    <view class="activity-name">
+      {{activityName}}
+    </view>
+  </view>
+  <view class="footer">
+    <view class="left">
+      <view class="avatar">
+        <image src="/assets/images/common/123.jpg" style="width:50rpx;height:50rpx;"></image>
+      </view>
+      <view class="user-name">大大撒dads</view>
+    </view>
+    <view class="right">
+      <van-icon name="friends" color="green" style="vertical-align: middle;"/>报名人数222
+    </view>
+  </view>
+</view>

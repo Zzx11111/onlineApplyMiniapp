@@ -7,6 +7,30 @@
   </view>
 </view>
 
-<van-field model:value="{{ activityName }}" placeholder="请输入活动名称" left-icon="label-o"/>
+<van-field model:value="{{ activityName }}" placeholder="请输入活动名称" left-icon="label-o" />
 
-<!-- <van-datetime-picker value="{{ currentDate }}" bind:input="onInput" /> -->
+<!-- 选择日期 -->
+<picker bindchange="bindDateChange" mode="date" start="{{currentDate}}" value="{{currentDate}}">
+  <view class="picker">
+    <van-field disabled="true" model:value="{{startDate}}" placeholder="请选择日期" left-icon="calendar-o">
+    </van-field>
+  </view>
+</picker>
+<!-- 选择时间 -->
+<picker bindchange="bindTimeChange" mode="time">
+  <view class="picker">
+    <van-field disabled="true" model:value="{{startTime}}" placeholder="请选择开始时间" left-icon="clock-o">
+    </van-field>
+  </view>
+</picker>
+<!-- 选择定位 -->
+<view bindtap="selectAddress">
+  <van-field disabled="true" model:value="{{addressName}}" placeholder="请选择活动地址" left-icon="location-o"></van-field>
+</view>
+<view class="space"></view>
+<!-- 活动内容 -->
+<van-field model:value="{{content}}" placeholder="输入活动内容，详细的活动描述可以吸引更多人报名哦" type="textarea" class="content"></van-field>
+<view class="space"></view>
+<!-- <button class="button-r" open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">获取手机号</button> -->
+<van-field model:value="{{phone}}" placeholder="请输入活动发起人联系电话" left-icon="phone-o"></van-field>
+<button class="button-r" bindtap="releaseActivity">发布</button>
