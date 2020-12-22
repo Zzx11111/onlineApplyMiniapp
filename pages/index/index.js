@@ -11,10 +11,11 @@ Page({
   data: {
     //appid:'wxb2bd9a2c08b417bf',
     //secret:'d725f10afcfa3b6455d955b7cd58caa1',
-    openID: '',
-    token: '',
-    activity: [],
-    a:false
+    // openID: '',
+    // token: '',
+    // activity: [],
+    // a:false
+    searchValue:""
   },
   onLoad: async function () {
     // var method = 'POST'
@@ -87,6 +88,15 @@ Page({
       }
     })
 
+  },
+  searchActivity(e){
+    console.log(e)
+  },
+  searchValueChange(e){
+    console.log(e);
+    this.setData({
+      searchValue:e.detail
+    })
   }
 
 })

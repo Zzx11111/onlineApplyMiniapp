@@ -1,6 +1,5 @@
-const util = require('../../utils/util')
-// pages/release/release.js
 const {formatTime} = require('../../utils/util')
+import Toast from '@vant/weapp/toast/toast';
 Page({
 
   /**
@@ -17,7 +16,7 @@ Page({
     longitude:"",
     addressName:"",
     content:"",
-    phone:""
+    phone:"13018427121"
   },
 
   /**
@@ -34,7 +33,8 @@ Page({
     let time = `${year}-${month}-${day}` 
     console.log(formatTime(date))
     this.setData({
-      currentDate:time
+      currentDate:time,
+      imgUrl:null
     })
   },
   bindDateChange(e){
@@ -60,7 +60,6 @@ Page({
         that.setData({
           imgUrl:res.tempFilePaths[0]
         })
-        console.log('data:image/jpg;base64,'+ wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], "base64"))
         // wx.request({
         //   url:res.tempFilePaths[0],
         //   responseType:'arraybuffer',
@@ -98,6 +97,35 @@ Page({
   },
   //发布
   releaseActivity(){
-    
+    //判断活动信息是否为空
+    if(!this.data.imgUrl){
+      Toast('图片不能为空');
+      return false;
+    }
+    if(!this.data.activityName){
+      Toast('活动名称不能为空')
+      return false
+    }
+    if(!this.data.startDate || !this.data.startTime){
+      Toast('日期时间不能为空')
+      return false
+    }
+    if(!this.data.addressName || !this.data.latitude || !this.data.longitude || !this.data.address){
+      Toast('活动地址不能为空')
+       return false
+    }
+    if(!this.data.content){
+      Toast('活动内容不能为空')
+    }
+    if(!this.data.phone){
+      Toast('联系电话不能为空')
+    }else if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(this.data.phone))){
+      Toast('联系电话有误')
+    }
+    //图片转base64
+    let image = 'data:image/jpg;base64,' + wx.getFileSystemManager().readFileSync(this.data.imgUrl,"base64")
+    console.log(image)
+    let datetime = this.data.startDate+ " " + this.data.startTime
+    console.log(datetime)
   }
 })

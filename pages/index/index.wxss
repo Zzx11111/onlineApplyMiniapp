@@ -1,22 +1,7 @@
 /**index.wxss**/
-.userinfo {
+.all-activity .header{
+  margin:20rpx 50rpx;
+  font-weight: 800;
+  vertical-align: middle;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-dd .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
 }

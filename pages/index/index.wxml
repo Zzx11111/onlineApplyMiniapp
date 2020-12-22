@@ -4,5 +4,26 @@
 <button bindtap="site">获取用户位置等</button>
 <view>{{activity[0].activityName}}</view>
 <button open-type="getUserInfo" bindgetuserinfo="_get">a</button> -->
-
-<activity-card></activity-card>
+<!-- 轮播图显示热门活动 -->
+<swiper autoplay indicator-dots>
+  <swiper-item>
+    <image src="/assets/images/common/123.jpg" style="width:100%;"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="/assets/images/common/45.jpg" style="width:100%;"></image>
+  </swiper-item>
+</swiper>
+<!-- 搜索活动 -->
+<van-search placeholder="请输入搜索关键词" use-action-slot bind:change="searchValueChange">
+  <view slot="action" bindtap="searchActivity">搜索</view>
+</van-search>
+<!-- 所有活动列表 -->
+<view class="all-activity">
+  <view class="header">
+    <van-icon name="bars" color="green" size="40rpx"/>
+    <view>所有活动</view>
+  </view>
+  <activity-card></activity-card>
+  <activity-card></activity-card>
+  <activity-card></activity-card>
+</view>

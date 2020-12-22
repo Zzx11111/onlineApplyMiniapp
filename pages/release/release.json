@@ -3,7 +3,8 @@
     "van-field": "@vant/weapp/field/index",
     "van-datetime-picker": "@vant/weapp/datetime-picker/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index"
   },
   "navigationStyle":"custom"
 }
