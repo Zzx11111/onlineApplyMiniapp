@@ -1,5 +1,6 @@
 const {formatTime} = require('../../utils/util')
 import Toast from '@vant/weapp/toast/toast';
+const {requestUrl} = require('../../utils/request')
 Page({
 
   /**
@@ -96,7 +97,7 @@ Page({
     })
   },
   //发布
-  releaseActivity(){
+  async releaseActivity(){
     //判断活动信息是否为空
     if(!this.data.imgUrl){
       Toast('图片不能为空');
@@ -124,8 +125,24 @@ Page({
     }
     //图片转base64
     let image = 'data:image/jpg;base64,' + wx.getFileSystemManager().readFileSync(this.data.imgUrl,"base64")
-    console.log(image)
     let datetime = this.data.startDate+ " " + this.data.startTime
     console.log(datetime)
+    const v = await requestUrl({
+      url:"/v1/activity/addActivity",
+      method:"POST",
+      data:{
+        imgUrl:image,
+        activityName:this.data.activityName,
+        address:this.data.address,
+        addressName:this.data.addressName,
+        latitude:this.data.latitude,
+        longitude:this.data.longitude,
+        startDate:datetime,
+        content:this.data.content,
+        phone:this.data.phone,
+        uid:1
+      }
+    })
+    console.log(v)
   }
 })

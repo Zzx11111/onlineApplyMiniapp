@@ -1,12 +1,12 @@
+const baseUrl = "http://localhost:3000"
 
-
-function requestUrl(url,data,method = 'GET',header = {}){
+function requestUrl(options){
   return new Promise((resolve,reject) => {
     wx.request({
-      url,
-      data,
-      method,
-      header,
+      url:baseUrl + options.url,
+      data:options.data || {},
+      method:options.method || "GET",
+      header:options.header || {},
       success(res){
         resolve(res)
       },
