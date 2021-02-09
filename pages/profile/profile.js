@@ -1,4 +1,5 @@
 // pages/profile/profile.js
+const {requestUrl} = require('../../utils/request')
 var app = getApp();
 Page({
 
@@ -19,48 +20,37 @@ Page({
     })
   },
   //获取用户信息
-  _getUserInfo(e){
-    var that= this
-    console.log(e)
-    // wx.login({
-    //   timeout: 5000,
-    //   success(res) {
-    //     console.log(res)
-    //     if (res.code) {
-    //       wx.request({
-    //         method: 'POST',
-    //         url: 'http://localhost:3000/v1/user/login',
-    //         data: {
-    //           code: res.code
-    //         },
-    //         // header:{
-    //         //   "content-type": "application/x-www-form-urlencoded"
-    //         // },
-    //         success(res) {
-    //           // console.log(res.data.token)
-    //           that.setData({
-    //             token: res.data.token
-    //           })
-    //         },
-    //         fail(error) {
-    //           console.log(error)
-    //         }
-    //       })
-    //     }
-    //   },
-    //   fail(err) {
-    //     console.log(err)
-    //     console.log('登录失败了')
-    //   }
-    // })
-    // wx.getUserInfo({
-    //   success(res){
-    //     console.log(res)
-    //     that.setData({
-    //       userInfo:res.userInfo
-    //     })
-    //   }
-    // })
+  async _getUserInfo(e){
+    var userInfo = e.detail.userInfo
+    var code = null
+    wx.login({
+      timeout: 5000,
+      async success(res) {
+        console.log(res)
+        code = res.code
+        if(code){
+          var user = await requestUrl({
+            url:"/v1/user/login",
+            method:"post",
+            data:{
+              code:code,
+              avatarUrl:userInfo.avatarUrl,
+              username:userInfo.nickName
+            }
+          })
+          console.log(user)
+          wx.setStorage({
+            data:user.data.token,
+            key: 'token',
+          })
+        }
+      },
+      fail(err) {
+        console.log(err)
+        console.log('登录失败了')
+      }
+    })
+    
     this.setData({
       userInfo:e.detail.userInfo
     })

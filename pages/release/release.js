@@ -28,10 +28,10 @@ Page({
     let year = date.getFullYear()
     let month = date.getMonth() + 1
     let day = date.getDate()
-    let hour = date.getHours()
-    let minute = date.getMinutes()
-    let second = date.getSeconds()
-    let time = `${year}-${month}-${day}` 
+    // let hour = date.getHours()
+    // let minute = date.getMinutes()
+    // let second = date.getSeconds()
+    let time = `${year}-${month}-${day+1}` 
     console.log(formatTime(date))
     this.setData({
       currentDate:time,
@@ -39,7 +39,6 @@ Page({
     })
   },
   bindDateChange(e){
-    console.log(e)
     this.setData({
       startDate:e.detail.value
     })
@@ -125,24 +124,23 @@ Page({
     }
     //图片转base64
     let image = 'data:image/jpg;base64,' + wx.getFileSystemManager().readFileSync(this.data.imgUrl,"base64")
-    let datetime = this.data.startDate+ " " + this.data.startTime
+    let datetime = this.data.startDate+ " " + this.data.startTime+":00"
     console.log(datetime)
-    const v = await requestUrl({
+    const res = await requestUrl({
       url:"/v1/activity/addActivity",
       method:"POST",
       data:{
-        imgUrl:image,
+        image:image,
         activityName:this.data.activityName,
-        address:this.data.address,
-        addressName:this.data.addressName,
+        activityAddress:this.data.addressName,
         latitude:this.data.latitude,
         longitude:this.data.longitude,
-        startDate:datetime,
-        content:this.data.content,
+        activityTime:datetime,
+        activityContent:this.data.content,
         phone:this.data.phone,
         uid:1
       }
     })
-    console.log(v)
+    console.log(res)
   }
 })
