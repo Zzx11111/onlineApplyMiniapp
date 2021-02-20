@@ -1,22 +1,22 @@
 <view class="container">
   <view class="header">
-    <image src="/assets/images/common/123.jpg" class="activity-img"></image>
+    <image src="{{imageBaseUrl+activity.image}}" class="activity-img"></image>
     <view class="time-end">
-      2天后截止报名
+      {{timeEnd}}后报名截止
     </view>
     <view class="activity-name">
-      {{activityName}}
+      {{activity.activityName}}
     </view>
   </view>
   <view class="footer">
     <view class="left">
       <view class="avatar">
-        <image src="/assets/images/common/123.jpg" style="width:50rpx;height:50rpx;"></image>
+        <image src="{{activity.promoter.avatarUrl}}" style="width:50rpx;height:50rpx;"></image>
       </view>
-      <view class="user-name">大大撒dads</view>
+      <view class="user-name">{{activity.promoter.username}}</view>
     </view>
     <view class="right">
-      <van-icon name="friends" color="green" style="vertical-align: middle;"/>报名人数222
+      <van-icon name="friends" color="green" style="vertical-align: middle;"/>报名人数{{activity.applyNum}}
     </view>
   </view>
 </view>

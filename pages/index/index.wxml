@@ -9,9 +9,6 @@
   <swiper-item>
     <image src="/assets/images/common/123.jpg" style="width:100%;"></image>
   </swiper-item>
-  <swiper-item>
-    <image src="/assets/images/common/45.jpg" style="width:100%;"></image>
-  </swiper-item>
 </swiper>
 <!-- 搜索活动 -->
 <van-search placeholder="请输入搜索关键词" use-action-slot bind:change="searchValueChange">
@@ -23,7 +20,7 @@
     <van-icon name="bars" color="green" size="40rpx"/>
     <view>所有活动</view>
   </view>
-  <activity-card></activity-card>
-  <activity-card></activity-card>
-  <activity-card></activity-card>
+  <block wx:for="{{activity}}">
+    <activity-card activity="{{item}}"></activity-card>
+  </block>
 </view>
