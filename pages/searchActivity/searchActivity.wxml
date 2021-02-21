@@ -1,0 +1,10 @@
+<view class="search">
+  <view wx:if="{{activity.length !== 0}}">
+    <block wx:for="{{activity}}">
+      <activity-card activity="{{item}}"></activity-card>
+    </block>
+  </view>
+  <view class="none-result" wx:else>
+    没有搜索到相关的活动!
+  </view>
+</view>

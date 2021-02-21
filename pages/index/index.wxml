@@ -11,7 +11,7 @@
   </swiper-item>
 </swiper>
 <!-- 搜索活动 -->
-<van-search placeholder="请输入搜索关键词" use-action-slot bind:change="searchValueChange">
+<van-search placeholder="请输入搜索关键词" use-action-slot model:value="{{ keyWord }}">
   <view slot="action" bindtap="searchActivity">搜索</view>
 </van-search>
 <!-- 所有活动列表 -->

@@ -11,7 +11,7 @@ Page({
   data: {
     offset:0,
     limit:10,
-    searchValue:"",
+    keyWord:"",
     activity:[]
   },
   onLoad: async function () {
@@ -35,13 +35,21 @@ Page({
 
   },
   searchActivity(e){
-    console.log(e)
+    if(this.data.keyWord !== ''){
+      wx.navigateTo({
+        url: `/pages/searchActivity/searchActivity?keyWord=${this.data.keyWord}`,
+      })
+    }else{
+      wx.showToast({
+        title: '请输入搜索的关键字',
+        icon:'none'
+      })
+    }
   },
-  searchValueChange(e){
-    console.log(e);
-    this.setData({
-      searchValue:e.detail
-    })
-  }
+  // searchValueChange(e){
+  //   this.setData({
+  //     keyWord:e.detail
+  //   })
+  // }
 
 })
