@@ -1,0 +1,33 @@
+<view class="activity-info">
+  <image src="{{imageBaseUrl + activityInfo.image}}" style="width:100%;"></image>
+  <view class="cell">
+    <view class="cell-title">活动名称</view>
+    <view class="cell-value">{{activityInfo.activityName}}</view>
+  </view>
+  <view class="cell">
+    <view class="cell-title">
+      <block wx:for="{{activityInfo.enlistList}}">
+        <image src="{{item.avatarUrl}}" class="avatar"></image>
+      </block>
+    </view>
+    <view class="cell-value">
+      查看名单
+      <van-icon name="arrow" class="cell-icon" custom-class="cell-icon"/>
+    </view>
+  </view>
+  <van-cell-group>
+    <van-cell label="{{activityInfo.activityContent}}"/>
+  </van-cell-group>
+  <view class="cell">
+    <view class="cell-title">
+      <van-icon name="underway-o" class="cell-icon"/>
+      活动时间
+    </view>
+    <view class="cell-value">{{activityInfo.activityTime}}</view>
+  </view>
+</view>
+
+<van-cell title="单元格" icon="location-o" />
+
+
+

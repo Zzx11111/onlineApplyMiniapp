@@ -28,15 +28,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goActivityInfo(e){
+      console.log(e)
+      const id = e.currentTarget.dataset.id
+      wx.navigateTo({
+        url: `/pages/activityInfo/activityInfo?id=${id}`,
+      })
+    }
   },
-  // observers:{
-  //   'activity':function(activity){
-  //     this.setData({
-  //       activityStartTime:activity.activityTime
-  //     })
-  //   }
-  // },
+  
   lifetimes:{
     attached(){
       console.log(Date.now())

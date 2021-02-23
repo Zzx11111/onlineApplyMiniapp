@@ -63,8 +63,15 @@
           "scene": null
         },
         {
-          "name": "pages/release/release",
-          "pathName": "pages/release/release",
+          "name": "pages/nearby/nearby",
+          "pathName": "pages/nearby/nearby",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activityInfo/activityInfo",
+          "pathName": "pages/activityInfo/activityInfo",
+          "query": "id=1",
           "scene": null
         }
       ]

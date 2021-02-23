@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" bindtap="goActivityInfo" data-id="{{activity.id}}">
   <view class="header">
     <image src="{{imageBaseUrl+activity.image}}" class="activity-img"></image>
     <view class="time-end">

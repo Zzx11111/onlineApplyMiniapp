@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/profile/profile",
     "pages/release/release",
-    "pages/searchActivity/searchActivity"
+    "pages/searchActivity/searchActivity",
+    "pages/nearby/nearby",
+    "pages/activityInfo/activityInfo",
+    "pages/viewList/viewList"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -27,6 +30,12 @@
         "text":"发布",
         "iconPath": "./assets/images/tabbar/add-circle.png",
         "selectedIconPath":"./assets/images/tabbar/add-circle-s.png"
+      },
+      {
+        "pagePath":"pages/nearby/nearby",
+        "text":"附近",
+        "iconPath": "./assets/images/tabbar/nearby.png",
+        "selectedIconPath":"./assets/images/tabbar/nearby-s.png"
       },
       {
         "pagePath":"pages/profile/profile",

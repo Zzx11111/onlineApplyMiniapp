@@ -1,0 +1,4 @@
+<view class="nearby">
+  <!-- <button bindtap="site">获取用户位置等</button> -->
+  <map >获取用户位置</map>
+</view>
