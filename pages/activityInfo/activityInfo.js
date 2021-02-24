@@ -8,7 +8,8 @@ Page({
   data: {
     activityInfo:{},
     imageBaseUrl:"http://localhost:3000/",
-    navigateUrl:"/pages/viewList/viewList"
+    navigateUrl:"/pages/viewList/viewList",
+    timeEnd:""
   },
   
 
@@ -30,8 +31,18 @@ Page({
     //字符串过长使用encodeURIComponent编码
     const enlistList = encodeURIComponent(JSON.stringify(this.data.activityInfo.enlistList))
     const navigateUrl = this.data.navigateUrl + `?enlistList=${enlistList}`
+    // this.setData({
+    //   navigateUrl:navigateUrl
+    // })
+    const nowTime = Date.parse(Date())
+    console.log(nowTime)
+    const activityTime = Date.parse(this.data.activityInfo.activityTime)
+    console.log(activityTime);
+    const timeEnd = activityTime - nowTime 
+    console.log(timeEnd);
     this.setData({
-      navigateUrl:navigateUrl
+      navigateUrl:navigateUrl,
+      timeEnd:timeEnd
     })
   },
 
@@ -41,7 +52,34 @@ Page({
   onReady: function () {
 
   },
+  openMap(e){
+    console.log(e)
+    const latitude = Number(e.currentTarget.dataset.latitude)
+    const longitude = Number(e.currentTarget.dataset.longitude)
+    wx.openLocation({
+      latitude: latitude,
+      longitude: longitude,
+    })
+  },
 
+  share(){
+    console.log("ccccccc");
+    wx.showShareMenu({
+      withShareTicket: true,
+    })
+  },
+  goHome(){
+    wx.navigateBack({
+      delta: 10,
+    })
+  },
+  /**
+   * 报名
+   */
+  enlist(){
+    const token = wx.getStorageSync('token')
+    console.log(token);
+  },
   /**
    * 生命周期函数--监听页面显示
    */

@@ -2,6 +2,9 @@
 .activity-info{
   min-height: 100vh;
   background-color: #c4c4c4;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 88rpx;
 }
 .activity-info .cell{
   font-size: 28rpx;
@@ -31,8 +34,44 @@
 .activity-info .cell-icon{
   display:inline-flex;
   align-items: center;
+  vertical-align: middle;
 }
-/* .activity-info .van-icon-underway-o{
-  display:inline-flex;
+.activity-info .line{
+  height: 30rpx;
+}
+.activity-info .promoter{
+  border-bottom:1px solid green;
+  padding: 10rpx 20rpx;
+}
+.activity-info .promoter-info{
+  background-color: #fff;
+  padding: 15rpx;
+  display: flex;
+}
+.activity-info .promoter-info .promoter-item{
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+.activity-info .bottom{
+  background-color: #fff;
+  height: 88rpx;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  display: flex;
+}
+.activity-info .home,.share{
+  flex: 1;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
   align-items: center;
-} */
+}
+.activity-info .enlist{
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: green;
+}

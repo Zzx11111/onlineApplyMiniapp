@@ -1,10 +1,10 @@
 <view class="activity-info">
-  <image src="{{imageBaseUrl + activityInfo.image}}" style="width:100%;"></image>
+  <image src="{{imageBaseUrl + activityInfo.image}}" style="width:100%;display:block;"></image>
   <view class="cell">
     <view class="cell-title">活动名称</view>
     <view class="cell-value">{{activityInfo.activityName}}</view>
   </view>
-  <view class="cell">
+  <view class="cell" wx:if="{{activityInfo.enlistList.length !== 0}}">
     <view class="cell-title">
       <block wx:for="{{activityInfo.enlistList}}">
         <image src="{{item.avatarUrl}}" class="avatar"></image>
@@ -15,19 +15,61 @@
       <van-icon name="arrow" class="cell-icon" custom-class="cell-icon"/>
     </view>
   </view>
+  <view class="line"></view>
   <van-cell-group>
     <van-cell label="{{activityInfo.activityContent}}"/>
   </van-cell-group>
   <view class="cell">
     <view class="cell-title">
-      <van-icon name="underway-o" class="cell-icon"/>
-      活动时间
+      <van-icon name="underway-o" class="cell-icon" color="green"/>
+      <text>活动时间</text>
     </view>
     <view class="cell-value">{{activityInfo.activityTime}}</view>
   </view>
+  <view class="cell">
+    <view class="cell-title">
+      <van-icon name="bell" class="cell-icon" color="green" size="28rpx"/>
+      <text>还剩：</text>
+    </view>
+    <view class="cell-value">
+      <van-count-down time="{{ timeEnd }}"  format="DD 天 HH 时 mm 分 ss 秒" />
+    </view>
+  </view>
+  <view class="cell" data-latitude="{{activityInfo.latitude}}" data-longitude="{{activityInfo.longitude}}" bindtap="openMap">
+    <view class="cell-title">
+      <van-icon name="location" class="cell-icon" color="green" size="28rpx"/>
+      <text>地点:</text>
+    </view>
+    <view class="cell-value">
+      {{activityInfo.activityAddress}}
+      <van-icon name="arrow" class="cell-icon" custom-class="cell-icon"/>
+    </view>
+  </view>
+  <!-- <view class="line"></view> -->
+  <view class="promoter">发起人</view>
+  <view class="promoter-info">
+    <image src="{{activityInfo.promoter.avatarUrl}}" style="width:100rpx;height:100rpx;"></image>
+    <view class="promoter-item">
+      <view>{{activityInfo.promoter.username}}</view>
+      <view>联系电话:{{activityInfo.phone}}</view>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class="bottom">
+    <view class="home" bindtap="  ">
+      <view><van-icon name="wap-home" /></view>
+      首页
+    </view>
+    <view class="share" bindtap="share">
+      <view><van-icon name="share" /></view>
+      分享
+    </view>
+    <view class="enlist" bindtap="enlist">
+      我要报名
+    </view>
+  </view>
 </view>
 
-<van-cell title="单元格" icon="location-o" />
 
 
 
