@@ -16,9 +16,12 @@
     </view>
   </view>
   <view class="line"></view>
-  <van-cell-group>
+  <!-- <van-cell-group>
     <van-cell label="{{activityInfo.activityContent}}"/>
-  </van-cell-group>
+  </van-cell-group> -->
+  <view class="cell">
+    <text>{{activityInfo.activityContent}}</text>
+  </view>
   <view class="cell">
     <view class="cell-title">
       <van-icon name="underway-o" class="cell-icon" color="green"/>
@@ -56,14 +59,14 @@
   </view>
   <!-- 底部 -->
   <view class="bottom">
-    <view class="home" bindtap="  ">
+    <view class="home" bindtap="goHome">
       <view><van-icon name="wap-home" /></view>
       首页
     </view>
-    <view class="share" bindtap="share">
+    <button class="share" open-type="share" plain style="border:0;font-weight: normal;">
       <view><van-icon name="share" /></view>
       分享
-    </view>
+    </button >
     <view class="enlist" bindtap="enlist">
       我要报名
     </view>

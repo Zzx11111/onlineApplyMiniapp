@@ -6,7 +6,8 @@
     "pages/searchActivity/searchActivity",
     "pages/nearby/nearby",
     "pages/activityInfo/activityInfo",
-    "pages/viewList/viewList"
+    "pages/viewList/viewList",
+    "pages/enlist/enlist"
   ],
   "window":{
     "backgroundTextStyle":"light",

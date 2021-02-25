@@ -25,6 +25,7 @@ Page({
         id:id
       }
     })
+    console.log(data)
     this.setData({
       activityInfo:data
     })
@@ -63,14 +64,17 @@ Page({
   },
 
   share(){
-    console.log("ccccccc");
     wx.showShareMenu({
       withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
     })
   },
   goHome(){
-    wx.navigateBack({
-      delta: 10,
+    // wx.navigateBack({
+    //   delta: 10,
+    // })
+    wx.reLaunch({
+      url: '/pages/index/index',
     })
   },
   /**
@@ -79,6 +83,15 @@ Page({
   enlist(){
     const token = wx.getStorageSync('token')
     console.log(token);
+    if(token){
+      wx.navigateTo({
+        url: `/pages/enlist/enlist?aid=${this.data.activityInfo.id}`,
+      })
+    }else{
+      wx.reLaunch({
+        url: "/pages/profile/profile",
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面显示
@@ -119,6 +132,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    
   },
 })

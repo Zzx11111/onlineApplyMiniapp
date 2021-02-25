@@ -1,0 +1,26 @@
+/* pages/enlist/enlist.wxss */
+.enlist{
+  min-height: 100vh;
+  background-color: #f0f3f6;
+  margin: 0;
+  padding: 0;
+}
+.enlist .header{
+  padding: 10rpx 20rpx;
+}
+.enlist .choice{
+  padding: 10rpx 20rpx;
+  background-color: #fff;
+  line-height: 40rpx;
+  font-size:32rpx;
+  display: flex;
+}
+.enlist .choice-item{
+  flex:1;
+}
+.enlist .save-button{
+  background-color: #1989fa;
+  border-radius: 999px;
+  margin-top: 40rpx;
+  color: #fff;
+}
