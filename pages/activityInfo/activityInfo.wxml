@@ -67,8 +67,11 @@
       <view><van-icon name="share" /></view>
       分享
     </button >
-    <view class="enlist" bindtap="enlist">
+    <view class="enlist" bindtap="enlist" wx:if="{{timeEnd > 0}}">
       我要报名
+    </view>
+    <view class="enlist-end" wx:else>
+      已经结束
     </view>
   </view>
 </view>

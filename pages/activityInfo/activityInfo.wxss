@@ -1,7 +1,7 @@
 /* pages/activityInfo/activityInfo.wxss */
 .activity-info{
   min-height: 100vh;
-  background-color: #c4c4c4;
+  background-color: #f0f3f6;
   margin: 0;
   padding: 0;
   margin-bottom: 88rpx;
@@ -68,9 +68,14 @@
   align-items: center;
   
 }
-/* .activity-info .share{
-  
-} */
+.activity-info .enlist-end{
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #969799;
+}
 .activity-info .enlist{
   flex: 2;
   display: flex;

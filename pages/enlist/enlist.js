@@ -34,7 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
   },
 
   /**
@@ -80,7 +80,13 @@ Page({
     const token = wx.getStorageSync('token')
     console.log(this.data.aid)
     console.log(this.data.phone)
-    const row = await requestUrl({
+    if(this.data.name === "" || this.data.phone === ""){
+      wx.showToast({
+        title: '请输入个人信息',
+      })
+      return 
+    }
+    const {data} = await requestUrl({
       url:"/v1/Enlist/activityEnlist",
       method:"POST",
       data:{
@@ -92,6 +98,44 @@ Page({
         token:token
       }
     })
-    console.log(row)
+    if(data.errorCode !== 0){
+      wx.showToast({
+        title:data.msg,
+      })
+      return
+    }
+    if(this.data.checked === true){
+      const res = await requestUrl({
+        method:"POST",
+        url:"/v1/user/updateInfo",
+        data:{
+          name:this.data.name,
+          phone:this.data.phone
+        },
+        header:{
+          token:token
+        },
+      })
+      console.log(res)
+    }
+    var that = this
+    wx.requestSubscribeMessage({
+      tmplIds: ['Xn26NFlTGIg3laBb0kAKXLKDZYgv8ZHRaIly417RQ3E'],
+      success(res){
+        requestUrl({
+          url:"/v1/Enlist/subscribeMessage",
+          method:"POST",
+          header:{
+            token:token
+          },
+          data:{
+            aid:that.data.aid
+          }
+        })
+      },
+      fail(err){
+        console.log(err)
+      },
+    })
   }
 })
