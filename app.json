@@ -7,7 +7,10 @@
     "pages/nearby/nearby",
     "pages/activityInfo/activityInfo",
     "pages/viewList/viewList",
-    "pages/enlist/enlist"
+    "pages/enlist/enlist",
+    "pages/userInfo/userInfo",
+    "pages/myRelease/myRelease",
+    "pages/myEnlist/myEnlist"
   ],
   "window":{
     "backgroundTextStyle":"light",

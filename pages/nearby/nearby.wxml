@@ -1,4 +1,19 @@
 <view class="nearby">
-  <!-- <button bindtap="site">获取用户位置等</button> -->
-  <map >获取用户位置</map>
+  <view bindtap="site" class="cell">
+    <view class="cell-title">获取位置</view>
+    <view class="cell-value">
+      <view class="name">{{name}}</view>
+      <view class="icon"><van-icon name="arrow" /></view>
+    </view>
+  </view>
+  
+  <block wx:for="{{activity}}">
+    <view class="distance">
+      活动地点距离{{item.distance}}km
+      <view class="icon">
+        <van-icon name="arrow-down" />
+      </view>
+    </view>
+    <activity-card activity="{{item}}"></activity-card>
+  </block>
 </view>

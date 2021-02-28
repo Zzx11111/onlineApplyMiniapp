@@ -46,10 +46,26 @@ Page({
       })
     }
   },
-  // searchValueChange(e){
-  //   this.setData({
-  //     keyWord:e.detail
-  //   })
-  // }
+  onPullDownRefresh: function() {
+    // 触发下拉刷新时执行
+    console.log("dddddd")
+  },
+  onReachBottom:async function () {
+    let offset = Number(this.data.offset + this.data.limit)
+    //console.log(typeof offset)
+    const {data} = await requestUrl({
+      url:"/v1/activity/getActivity",
+      data:{
+        offset:offset
+      }
+    })
+    let activity = this.data.activity
+    activity.push(...data)
+    console.log(data)
+    this.setData({
+      offset:offset,
+      activity:activity
+    })
+  },
 
 })

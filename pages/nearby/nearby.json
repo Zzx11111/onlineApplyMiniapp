@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "activity-card":"/components/activityCard/activityCard"
+    "activity-card":"/components/activityCard/activityCard",
+    "van-icon": "@vant/weapp/icon/index"
   }
 }

@@ -1,4 +1,46 @@
 /* pages/nearby/nearby.wxss */
 .nearby{
-  
+  background-color: #f0f3f6;
+  min-height: 100vh;
+}
+.nearby .cell{
+  font-size: 28rpx;
+  line-height: 48rpx;
+  display: flex;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-bottom: 1px solid #ebedf0;
+}
+.nearby .distance{
+  margin-top: 40rpx;
+  text-align: center;
+  /* background-color: #fff; */
+}
+.nearby .distance .icon{
+  display: inline-flex;
+  align-items: center;
+}
+.nearby .cell .cell-title{
+  flex: 1;
+  width: 2000rpx;
+}
+.nearby .cell .cell-value{
+  flex:1;
+  text-align: right;
+  color:#969799;
+  display: flex;
+  min-width: 0;
+  /* white-space: nowrap;会撑大盒子的宽度需要加min-width:0; */
+}
+.cell .cell-value .icon{
+  display: inline-flex;
+  align-items: center;
+}
+.cell .cell-value .name{
+  flex: 1;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
 }

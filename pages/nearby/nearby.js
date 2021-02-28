@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    name:"",
+    latitude:"",
+    longitude:"",
+    activity:[]
   },
 
   /**
@@ -22,17 +25,53 @@ Page({
   onReady: function () {
 
   },
-  site() {
+  async site() {
+    var that = this
     wx.getLocation({
-      // type: 'gcj02',
-      // isHighAccuracy:true,
-      success(res) {
-        console.log(res)
-        //let a = GetDistance(22.973568, 113.748781, 23.132683, 113.878626)
-        //console.log(a)
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success (res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        that.setData({
+          
+          
+        })
+        wx.chooseLocation({
+          latitude,
+          longitude,
+          async success(res){
+            console.log(res)
+            that.setData({
+              name:res.name,
+              latitude:res.latitude,
+              longitude:res.longitude
+            })
+            console.log(res.latitude)
+            const {data} = await requestUrl({
+              url:"/v1/activity/nearlyActivity",
+              method:"POST",
+              data:{
+                latitude:res.latitude,
+                longitude:res.longitude
+              }
+            })
+            that.setData({
+              activity:data
+            })
+            
+          }
+        })
       }
     })
-
+    
+    
+    
+    // wx.chooseLocation({
+    //   success(res){
+    //     console.log(longitude)
+    //     console.log(res)
+    //   }
+    // })
   },
 
   /**
