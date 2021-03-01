@@ -1,2 +1,17 @@
-<!--pages/userInfo/userInfo.wxml-->
-<text>pages/userInfo/userInfo.wxml</text>
+<view class="user-info">
+  <van-cell-group>
+    <van-field
+      model:value="{{ name }}"
+      placeholder="请输入姓名"
+      label="姓名"
+    />
+  </van-cell-group>
+  <van-cell-group>
+    <van-field
+      model:value="{{ phone }}"
+      placeholder="请输入联系电话"
+      label="联系电话"
+    />
+  </van-cell-group>
+  <button class="save-button" bindtap="saveInfo">保存</button>
+</view>

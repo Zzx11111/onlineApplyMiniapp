@@ -1,18 +1,30 @@
 // pages/myEnlist/myEnlist.js
+const {requestUrl} = require('../../utils/request')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    activity:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad:async function (options) {
+    const token = wx.getStorageSync('token')
+    // console.log(token);
+    const {data} = await requestUrl({
+      url:"/v1/user/myEnlist",
+      header:{
+        token:token
+      }
+    })
+    console.log(data)
+    this.setData({
+      activity:data
+    })
   },
 
   /**

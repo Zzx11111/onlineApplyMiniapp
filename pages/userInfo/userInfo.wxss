@@ -1,1 +1,7 @@
 /* pages/userInfo/userInfo.wxss */
+.save-button{
+  background-color: #1989fa;
+  border-radius: 999px;
+  margin-top: 40rpx;
+  color: #fff;
+}

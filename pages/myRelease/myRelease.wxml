@@ -1,2 +1,3 @@
-<!--pages/myRelease/myRelease.wxml-->
-<text>pages/myRelease/myRelease.wxml</text>
+<block wx:for="{{activity}}">
+  <activity-card activity="{{item}}"></activity-card>
+</block>

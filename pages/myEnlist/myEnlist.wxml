@@ -1,2 +1,3 @@
-<!--pages/myEnlist/myEnlist.wxml-->
-<text>pages/myEnlist/myEnlist.wxml</text>
+<block wx:for="{{activity}}">
+  <activity-card activity="{{item}}"></activity-card>
+</block>

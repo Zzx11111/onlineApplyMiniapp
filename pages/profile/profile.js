@@ -55,6 +55,21 @@ Page({
       userInfo:e.detail.userInfo
     })
   },
+  goUserInfo(){
+    wx.navigateTo({
+      url: '/pages/userInfo/userInfo',
+    })
+  },
+  goMyEnlist(){
+    wx.navigateTo({
+      url: '/pages/myEnlist/myEnlist',
+    })
+  },
+  goMyRelease(){
+    wx.navigateTo({
+      url: '/pages/myRelease/myRelease',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
