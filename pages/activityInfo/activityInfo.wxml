@@ -4,7 +4,7 @@
     <view class="cell-title">活动名称</view>
     <view class="cell-value">{{activityInfo.activityName}}</view>
   </view>
-  <view class="cell" wx:if="{{activityInfo.enlistList.length !== 0}}">
+  <view class="cell" wx:if="{{activityInfo.enlistList.length !== 0}}" bindtap="viewList">
     <view class="cell-title">
       <block wx:for="{{activityInfo.enlistList}}">
         <image src="{{item.avatarUrl}}" class="avatar"></image>
@@ -57,6 +57,36 @@
       <view>联系电话:{{activityInfo.phone}}</view>
     </view>
   </view>
+  <!-- 评论区 -->
+  <view class="comment">评论区</view>
+  <van-cell-group>
+    <van-field
+      model:value="{{ addComment }}"
+      center
+      clearable
+      placeholder="请输入评论"
+      use-button-slot
+      autosize
+      type="textarea"
+    >
+      <van-button slot="button" size="small" type="primary" bindtap="createComment">
+        发送
+      </van-button>
+    </van-field>
+  </van-cell-group>
+  <block wx:for="{{comments}}">
+    <view class="comment-item">
+      <image src="{{item.promoter.avatarUrl}}" style="width:80rpx;height:80rpx;"></image>
+      <view class="comment-info">
+        <view>{{item.promoter.username}}</view>
+        <view class="comment-content">
+          {{item.commentContent}}
+          <text style="color:#77787b;">{{item.createTime}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
   <!-- 底部 -->
   <view class="bottom">
     <view class="home" bindtap="goHome">

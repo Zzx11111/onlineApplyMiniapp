@@ -1,5 +1,5 @@
 <view class="enlist">
-  <view class="header">个人信息(仅发起人可见)</view>
+  <view class="header">填写个人信息</view>
   <van-field
     model:value="{{ name }}"
     label="姓名"
@@ -14,6 +14,5 @@
     <view class="choice-item">设为我的个人信息，下次自带填</view>
     <van-switch checked="{{ checked }}" bind:change="onChange" size="40rpx" active-color/>
   </view>
-  <!-- <van-button round type="info" >圆形按钮</van-button> -->
   <button class="save-button" bindtap="enlist">保存</button>
 </view>

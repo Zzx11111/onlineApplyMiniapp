@@ -125,7 +125,7 @@ Page({
     //图片转base64
     let image = 'data:image/jpg;base64,' + wx.getFileSystemManager().readFileSync(this.data.imgUrl,"base64")
     let datetime = this.data.startDate+ " " + this.data.startTime+":00"
-    console.log(this.data.content)
+    const token = wx.getStorageSync('token')
     const res = await requestUrl({
       url:"/v1/activity/addActivity",
       method:"POST",
@@ -138,7 +138,9 @@ Page({
         activityTime:datetime,
         activityContent:this.data.content,
         phone:this.data.phone,
-        uid:1
+      },
+      header:{
+        token:token
       }
     })
     console.log(res)

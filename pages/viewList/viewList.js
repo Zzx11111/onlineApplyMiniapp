@@ -5,16 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    enlistList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    ////字符串过长使用decodeURIComponent编码
-    const a = options.enlistList
-    console.log(JSON.parse(decodeURIComponent(a)))
+    //字符串过长使用decodeURIComponent编码
+    console.log(JSON.parse(decodeURIComponent(options.enlistList)))
+    const enlistList = JSON.parse(decodeURIComponent(options.enlistList))
+    this.setData({
+      enlistList:enlistList
+    })
   },
 
   /**

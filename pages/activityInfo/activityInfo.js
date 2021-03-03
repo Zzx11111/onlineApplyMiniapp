@@ -9,7 +9,9 @@ Page({
     activityInfo:{},
     imageBaseUrl:"http://localhost:3000/",
     navigateUrl:"/pages/viewList/viewList",
-    timeEnd:""
+    timeEnd:"",
+    addComment:"",
+    comments:[]
   },
   
 
@@ -32,9 +34,9 @@ Page({
     //字符串过长使用encodeURIComponent编码
     const enlistList = encodeURIComponent(JSON.stringify(this.data.activityInfo.enlistList))
     const navigateUrl = this.data.navigateUrl + `?enlistList=${enlistList}`
-    // this.setData({
-    //   navigateUrl:navigateUrl
-    // })
+    this.setData({
+      navigateUrl:navigateUrl
+    })
     const nowTime = Date.parse(Date())
     console.log(nowTime)
     const activityTime = Date.parse(this.data.activityInfo.activityTime)
@@ -45,6 +47,47 @@ Page({
       navigateUrl:navigateUrl,
       timeEnd:timeEnd
     })
+    //获取评论
+    const comment = await requestUrl({
+      url:"/v1/comment/getComment",
+      method:"GET",
+      data:{
+        aid:id
+      }
+    })
+    this.setData({
+      comments:comment.data
+    })
+    console.log(comment)
+  },
+  async createComment(){
+    const token = wx.getStorageSync('token')
+    if(this.data.addComment === ""){
+      wx.showToast({
+        title: '请输入内容',
+      })
+      return
+    }
+    const res = await requestUrl({
+      url:"/v1/comment/addComment",
+      method:"POST",
+      header:{
+        token:token
+      },
+      data:{
+        aid:this.data.activityInfo.id,
+        comment:this.data.addComment
+      }
+    })
+    console.log(res)
+    if(res.data.errorCode === 0){
+      wx.showToast({
+        title:res.data.msg,
+      })
+      wx.redirectTo({
+        url: `/pages/activityInfo/activityInfo?id=${this.data.activityInfo.id}`,
+      })
+    }
   },
 
   /**
@@ -75,6 +118,12 @@ Page({
     // })
     wx.reLaunch({
       url: '/pages/index/index',
+    })
+  },
+  //查看报名名单
+  viewList(){
+    wx.navigateTo({
+      url:this.data.navigateUrl,
     })
   },
   /**

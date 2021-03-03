@@ -14,7 +14,6 @@ Page({
    */
   onLoad: async function (options) {
     const keyWord = options.keyWord
-    console.log(keyWord);
     const {data} = await requestUrl({
       data:{
         keyWord:keyWord
@@ -22,7 +21,7 @@ Page({
       method:'POST',
       url:'/v1/activity/searchActivity'
     })
-    // console.log(activity);
+    console.log(data);
     if(data.length !== 0){
       this.setData({
         activity:data

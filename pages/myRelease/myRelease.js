@@ -15,10 +15,11 @@ Page({
   onLoad:async function (options) {
     const token = wx.getStorageSync('token')
     const {data} = await requestUrl({
-      url:"v1/user/myRelease",
+      url:"/v1/user/myRelease",
       header:{
         token:token
-      }
+      },
+      method:"GET"
     })
     console.log(data)
     this.setData({

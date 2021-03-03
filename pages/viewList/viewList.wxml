@@ -1,2 +1,16 @@
-<!--pages/viewList/viewList.wxml-->
-<text>pages/viewList/viewList.wxml</text>
+<view class="view-list">
+  <block wx:for="{{enlistList}}">
+    <view class="container">
+      <view class="header">
+        <image src="{{item.avatarUrl}}" style="width:100rpx;height:100rpx;"></image>
+      </view>
+      <view class="main">
+        <van-cell-group>
+          <van-cell title="昵称" value="{{item.username}}" />
+          <van-cell title="报名姓名" value="{{item.name}}" />
+          <van-cell title="联系方式" value="{{item.phone}}" />
+        </van-cell-group>
+      </view>
+    </view>
+  </block>
+</view>

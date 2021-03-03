@@ -57,17 +57,18 @@ Page({
   },
   goUserInfo(){
     wx.navigateTo({
-      url: '/pages/userInfo/userInfo',
+      url: '/pages/userInfo/userInfo'
     })
   },
   goMyEnlist(){
     wx.navigateTo({
-      url: '/pages/myEnlist/myEnlist',
+      url: '/pages/myEnlist/myEnlist'
     })
   },
   goMyRelease(){
+    console.log("aaaaa")
     wx.navigateTo({
-      url: '/pages/myRelease/myRelease',
+      url: '/pages/myRelease/myRelease'
     })
   },
 

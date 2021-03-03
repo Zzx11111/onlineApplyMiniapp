@@ -39,10 +39,11 @@
 .activity-info .line{
   height: 30rpx;
 }
-.activity-info .promoter{
+.activity-info .promoter,.activity-info .comment{
   border-bottom:1px solid green;
   padding: 10rpx 20rpx;
 }
+
 .activity-info .promoter-info{
   background-color: #fff;
   padding: 15rpx;
@@ -83,4 +84,18 @@
   align-items: center;
   color: #fff;
   background-color: green;
+}
+.activity-info .comment-item{
+  padding: 20rpx;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 1rpx solid #f0f3f6;
+}
+.activity-info .comment-item .comment-info{
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+.activity-info .comment-item .comment-info .comment-content{
+  white-space: normal;
+  word-break: break-all;
 }

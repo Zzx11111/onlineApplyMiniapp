@@ -1,1 +1,13 @@
 /* pages/viewList/viewList.wxss */
+.view-list{
+  background-color: #f0f3f6;
+  min-height: 100vh;
+}
+.container{
+  margin: 10rpx;
+  background-color: #fff;
+}
+.container .header{
+  text-align: center;
+  padding: 10rpx;
+}
