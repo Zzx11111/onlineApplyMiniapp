@@ -113,9 +113,6 @@ Page({
     })
   },
   goHome(){
-    // wx.navigateBack({
-    //   delta: 10,
-    // })
     wx.reLaunch({
       url: '/pages/index/index',
     })

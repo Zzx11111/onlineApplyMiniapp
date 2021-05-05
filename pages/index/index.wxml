@@ -5,11 +5,11 @@
 <view>{{activity[0].activityName}}</view>
 <button open-type="getUserInfo" bindgetuserinfo="_get">a</button> -->
 <!-- 轮播图显示热门活动 -->
-<swiper autoplay indicator-dots>
+<!-- <swiper autoplay indicator-dots>
   <swiper-item>
     <image src="/assets/images/common/123.jpg" style="width:100%;"></image>
   </swiper-item>
-</swiper>
+</swiper> -->
 <!-- 搜索活动 -->
 <van-search placeholder="请输入搜索关键词" use-action-slot model:value="{{ keyWord }}">
   <view slot="action" bindtap="searchActivity">搜索</view>

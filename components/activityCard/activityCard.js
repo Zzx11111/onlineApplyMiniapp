@@ -19,7 +19,9 @@ Component({
    * 组件的初始数据
    */
   data: {
+    
     imageBaseUrl:"http://localhost:3000/",
+    // imageBaseUrl:"http://192.168.0.105:3000/",
     activityStartTime:"",
     timeEnd:''
     

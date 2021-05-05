@@ -137,5 +137,8 @@ Page({
         console.log(err)
       },
     })
+    wx.navigateTo({
+      url: `/pages/activityInfo/activityInfo?id=${this.data.aid}`,
+    })
   }
 })

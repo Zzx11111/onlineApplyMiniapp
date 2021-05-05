@@ -1,6 +1,6 @@
 <!--上传图片 -->
 <view class="img-upload">
-  <image src="/assets/images/common/123.jpg" class="img-item" wx:if="{{!imgUrl}}"></image>
+  <view class="img-item" wx:if="{{!imgUrl}}"></view>
   <image src="{{imgUrl}}" class="img-item" wx:else></image>
   <view bindtap="chooseImage" class="add-img">
     <image src="/assets/images/common/addImg.png"></image>

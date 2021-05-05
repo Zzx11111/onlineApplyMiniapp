@@ -22,6 +22,7 @@ Page({
       method:"GET"
     })
     console.log(data)
+    // if(data.errorCode)
     this.setData({
       activity:data
     })

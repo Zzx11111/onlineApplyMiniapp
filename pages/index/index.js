@@ -15,9 +15,13 @@ Page({
     activity:[]
   },
   onLoad: async function () {
+    this.getActivity()
+  },
+  async getActivity(){
     const {data} = await requestUrl({
       url:"/v1/activity/getActivity"
     })
+    console.log(data)
     this.setData({
       activity:data
     })
@@ -46,9 +50,16 @@ Page({
       })
     }
   },
-  onPullDownRefresh: function() {
+  onPullDownRefresh:async function() {
     // 触发下拉刷新时执行
-    console.log("dddddd")
+    // const {data} = await requestUrl({
+    //   url:"/v1/activity/getActivity"
+    // })
+    // console.log(data)
+    // this.setData({
+    //   activity:data
+    // })
+    this.getActivity()
   },
   onReachBottom:async function () {
     let offset = Number(this.data.offset + this.data.limit)

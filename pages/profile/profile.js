@@ -56,17 +56,40 @@ Page({
     })
   },
   goUserInfo(){
+    var token = wx.getStorageSync('token')
+    if(token == null || token == ""){
+      wx.showToast({
+        title: '请登录',
+        icon:'none'
+      })
+      return false
+    }
     wx.navigateTo({
       url: '/pages/userInfo/userInfo'
     })
   },
   goMyEnlist(){
+    var token = wx.getStorageSync('token')
+    if(token == null || token == ""){
+      wx.showToast({
+        title: '请登录',
+        icon:'none'
+      })
+      return false
+    }
     wx.navigateTo({
       url: '/pages/myEnlist/myEnlist'
     })
   },
   goMyRelease(){
-    console.log("aaaaa")
+    var token = wx.getStorageSync('token')
+    if(token == null || token == ""){
+      wx.showToast({
+        title: '请登录',
+        icon:'none'
+      })
+      return false
+    }
     wx.navigateTo({
       url: '/pages/myRelease/myRelease'
     })

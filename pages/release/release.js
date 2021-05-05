@@ -143,6 +143,13 @@ Page({
         token:token
       }
     })
-    console.log(res)
+    if(res.data.errorCode === 0){
+      wx.showToast({
+        title: '添加成功'
+      })
+      // wx.reLaunch({
+      //   url: '/pages/index/index.wxml',
+      // })
+    }
   }
 })

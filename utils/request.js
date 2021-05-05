@@ -1,5 +1,6 @@
 const baseUrl = "http://localhost:3000"
 
+// const baseUrl = "http://192.168.0.105:3000"
 function requestUrl(options){
   return new Promise((resolve,reject) => {
     wx.request({
